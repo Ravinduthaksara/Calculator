@@ -44,12 +44,12 @@ namespace Calculator
             this.Plusbtn = new System.Windows.Forms.Button();
             this.Minusbtn = new System.Windows.Forms.Button();
             this.Multiplybtn = new System.Windows.Forms.Button();
-            this.Dividebtn = new System.Windows.Forms.Button();
             this.CEbtn = new System.Windows.Forms.Button();
-            this.Cbtn = new System.Windows.Forms.Button();
             this.Equalbtn = new System.Windows.Forms.Button();
             this.textBoxresult = new System.Windows.Forms.TextBox();
             this.Lablepreview = new System.Windows.Forms.Label();
+            this.Dividebtn = new System.Windows.Forms.Button();
+            this.Cancelbutton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // number1bt
@@ -160,6 +160,7 @@ namespace Calculator
             this.Number0btn.TabIndex = 9;
             this.Number0btn.Text = "0";
             this.Number0btn.UseVisualStyleBackColor = true;
+            this.Number0btn.Click += new System.EventHandler(this.number1bt_Click);
             // 
             // pointbtn
             // 
@@ -181,6 +182,7 @@ namespace Calculator
             this.Plusbtn.TabIndex = 11;
             this.Plusbtn.Text = "+";
             this.Plusbtn.UseVisualStyleBackColor = true;
+            this.Plusbtn.Click += new System.EventHandler(this.Actionbtn_Clicked);
             // 
             // Minusbtn
             // 
@@ -191,6 +193,7 @@ namespace Calculator
             this.Minusbtn.TabIndex = 12;
             this.Minusbtn.Text = "-";
             this.Minusbtn.UseVisualStyleBackColor = true;
+            this.Minusbtn.Click += new System.EventHandler(this.Actionbtn_Clicked);
             // 
             // Multiplybtn
             // 
@@ -201,16 +204,7 @@ namespace Calculator
             this.Multiplybtn.TabIndex = 13;
             this.Multiplybtn.Text = "*";
             this.Multiplybtn.UseVisualStyleBackColor = true;
-            // 
-            // Dividebtn
-            // 
-            this.Dividebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Dividebtn.Location = new System.Drawing.Point(202, 114);
-            this.Dividebtn.Name = "Dividebtn";
-            this.Dividebtn.Size = new System.Drawing.Size(45, 49);
-            this.Dividebtn.TabIndex = 14;
-            this.Dividebtn.Text = "/";
-            this.Dividebtn.UseVisualStyleBackColor = true;
+            this.Multiplybtn.Click += new System.EventHandler(this.Actionbtn_Clicked);
             // 
             // CEbtn
             // 
@@ -221,16 +215,7 @@ namespace Calculator
             this.CEbtn.TabIndex = 15;
             this.CEbtn.Text = "CE";
             this.CEbtn.UseVisualStyleBackColor = true;
-            // 
-            // Cbtn
-            // 
-            this.Cbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cbtn.Location = new System.Drawing.Point(266, 181);
-            this.Cbtn.Name = "Cbtn";
-            this.Cbtn.Size = new System.Drawing.Size(54, 49);
-            this.Cbtn.TabIndex = 16;
-            this.Cbtn.Text = "C";
-            this.Cbtn.UseVisualStyleBackColor = true;
+            this.CEbtn.Click += new System.EventHandler(this.CEbtn_Click);
             // 
             // Equalbtn
             // 
@@ -241,6 +226,7 @@ namespace Calculator
             this.Equalbtn.TabIndex = 17;
             this.Equalbtn.Text = "=";
             this.Equalbtn.UseVisualStyleBackColor = true;
+            this.Equalbtn.Click += new System.EventHandler(this.Equalbtn_Click);
             // 
             // textBoxresult
             // 
@@ -263,17 +249,39 @@ namespace Calculator
             this.Lablepreview.TabIndex = 19;
             this.Lablepreview.Text = "label1";
             // 
+            // Dividebtn
+            // 
+            this.Dividebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Dividebtn.Location = new System.Drawing.Point(202, 114);
+            this.Dividebtn.Name = "Dividebtn";
+            this.Dividebtn.Size = new System.Drawing.Size(45, 49);
+            this.Dividebtn.TabIndex = 20;
+            this.Dividebtn.Text = "/";
+            this.Dividebtn.UseVisualStyleBackColor = true;
+            this.Dividebtn.Click += new System.EventHandler(this.Actionbtn_Clicked);
+            // 
+            // Cancelbutton
+            // 
+            this.Cancelbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cancelbutton.Location = new System.Drawing.Point(266, 181);
+            this.Cancelbutton.Name = "Cancelbutton";
+            this.Cancelbutton.Size = new System.Drawing.Size(54, 49);
+            this.Cancelbutton.TabIndex = 21;
+            this.Cancelbutton.Text = "C";
+            this.Cancelbutton.UseVisualStyleBackColor = true;
+            this.Cancelbutton.Click += new System.EventHandler(this.Cancelbutton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 371);
+            this.Controls.Add(this.Cancelbutton);
+            this.Controls.Add(this.Dividebtn);
             this.Controls.Add(this.Lablepreview);
             this.Controls.Add(this.textBoxresult);
             this.Controls.Add(this.Equalbtn);
-            this.Controls.Add(this.Cbtn);
             this.Controls.Add(this.CEbtn);
-            this.Controls.Add(this.Dividebtn);
             this.Controls.Add(this.Multiplybtn);
             this.Controls.Add(this.Minusbtn);
             this.Controls.Add(this.Plusbtn);
@@ -315,12 +323,12 @@ namespace Calculator
         private System.Windows.Forms.Button Plusbtn;
         private System.Windows.Forms.Button Minusbtn;
         private System.Windows.Forms.Button Multiplybtn;
-        private System.Windows.Forms.Button Dividebtn;
         private System.Windows.Forms.Button CEbtn;
-        private System.Windows.Forms.Button Cbtn;
         private System.Windows.Forms.Button Equalbtn;
         private System.Windows.Forms.TextBox textBoxresult;
         private System.Windows.Forms.Label Lablepreview;
+        private System.Windows.Forms.Button Dividebtn;
+        private System.Windows.Forms.Button Cancelbutton;
     }
 }
 
